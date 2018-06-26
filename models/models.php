@@ -6,7 +6,7 @@ require 'umum/fungsi_tanggal.php';
 require 'url/fungsi_acak_url.php';
 
 //model absen
-require 'absen/fungsi_absen.php';
+//require 'absen/fungsi_absen.php';
 
 //model pegawai
 require 'pegawai/fungsi_pegawai.php';

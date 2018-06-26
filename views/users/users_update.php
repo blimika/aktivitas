@@ -33,7 +33,7 @@
                       <?php
                         if ($_POST['submit_update']) {
                             $user_id = $_POST['user_id'];
-                            $absen_id = $_POST['absen_id'];
+                            //$absen_id = $_POST['absen_id'];
                             $username = $_POST['username'];
                             $user_nama = $_POST['user_nama'];
                             $user_email = $_POST['user_email'];
@@ -55,7 +55,7 @@
                                $pass_md5=gen_passwd($user_passwd);
                             }
                             
-                            $r_update=update_username($user_id,$absen_id,$username,$user_nama,$user_nohp,$user_email,$pass_md5,$user_unitkerja,$peg_jabatan,$user_status,$user_level);
+                            $r_update=update_username($user_id,$username,$user_nama,$user_nohp,$user_email,$pass_md5,$user_unitkerja,$peg_jabatan,$user_status,$user_level);
                             echo $r_update["pesan_error"];                          
                         }
                         else {

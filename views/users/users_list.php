@@ -38,7 +38,6 @@
                     <thead>
                     <tr>
                         <th class="text-center">ID</th>
-                        <th class="text-center">Absen ID</th>
                         <th class="text-center">Username</th>
                         <th class="text-center">Nama</th>
                         <th class="text-center">Level</th>
@@ -67,7 +66,6 @@
                             echo '
                                 <tr>
                                     <td>'.$r_user["item"][$i]["id"].'</td>
-                                    <td>'.$r_user["item"][$i]["absen_id"].'</td>
                                     <td>'.$r_user["item"][$i]["username"].'</td>
                                     <td>'.$r_user["item"][$i]["nama"].'</td>
                                     <td>'.$lvl_user_warna[$r_user["item"][$i]["level"]].'</td>
@@ -90,7 +88,6 @@
                     <tfoot>
                     <tr>
                         <th class="text-center">ID</th>
-                        <th class="text-center">Absen ID</th>
                         <th class="text-center">Username</th>
                         <th class="text-center">Nama</th>
                         <th class="text-center">Level</th>

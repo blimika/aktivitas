@@ -177,7 +177,7 @@ function cek_user_no($user_no) {
 	return $r_login;
 	$db->close();
 }
-function update_username($user_id,$absen_id,$username,$user_nama,$user_nohp,$user_email,$pass_md5,$user_unitkerja,$peg_jabatan,$user_status,$user_level) {
+function update_username($user_id,$username,$user_nama,$user_nohp,$user_email,$pass_md5,$user_unitkerja,$peg_jabatan,$user_status,$user_level) {
 	$waktu_lokal=date("Y-m-d H:i:s");
     $created=$_SESSION['papo_userid'];
 	if ($peg_jabatan==3) { $peg_status=2; }
@@ -193,10 +193,10 @@ function update_username($user_id,$absen_id,$username,$user_nama,$user_nohp,$use
 		$r_update["error"]=false;
 		//update sql
 		if ($pass_md5=='') {
-			$sql_save_user = $conn_users -> query("update users set username='$username', absen_id='$absen_id', nama='$user_nama',email='$user_email',unitkerja='$user_unitkerja', nohp=$user_nohp,peg_status='$peg_status',peg_jabatan='$peg_jabatan',update_oleh='$created',tgl_update='$waktu_lokal',level='$user_level',aktif='$user_status' where id='$user_id'") or die(mysqli_error($conn_users));
+			$sql_save_user = $conn_users -> query("update users set username='$username', nama='$user_nama',email='$user_email',unitkerja='$user_unitkerja', nohp=$user_nohp,peg_status='$peg_status',peg_jabatan='$peg_jabatan',update_oleh='$created',tgl_update='$waktu_lokal',level='$user_level',aktif='$user_status' where id='$user_id'") or die(mysqli_error($conn_users));
 		}
 		else {
-			$sql_save_user = $conn_users -> query("update users set username='$username', absen_id='$absen_id', nama='$user_nama',email='$user_email',unitkerja='$user_unitkerja',nohp=$user_nohp,peg_status='$peg_status',peg_jabatan='$peg_jabatan',update_oleh='$created',tgl_update='$waktu_lokal',level='$user_level',aktif='$user_status',passwd='$pass_md5' where id='$user_id'") or die(mysqli_error($conn_users));
+			$sql_save_user = $conn_users -> query("update users set username='$username', nama='$user_nama',email='$user_email',unitkerja='$user_unitkerja',nohp=$user_nohp,peg_status='$peg_status',peg_jabatan='$peg_jabatan',update_oleh='$created',tgl_update='$waktu_lokal',level='$user_level',aktif='$user_status',passwd='$pass_md5' where id='$user_id'") or die(mysqli_error($conn_users));
 		}
 		
 		if ($sql_save_user) {
@@ -323,7 +323,6 @@ function list_users($user_id,$detil=false) {
 		while ($r=$sql_users->fetch_object()) {
 			$users_list["item"][$i]=array(
 				"id"=>$r->id,
-				"absen_id"=>$r->absen_id,
 				"username"=>$r->username,
 				"passwd"=>$r->passwd,
 				"nama"=>$r->nama,

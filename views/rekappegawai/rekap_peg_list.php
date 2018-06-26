@@ -79,7 +79,6 @@ else { $thn_pilih=date("Y"); }
                             <th>Kegiatan</th>
                             <th>Target</th>
                             <th>Tanggal Save</th>
-                            <th>&nbsp;</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -142,7 +141,6 @@ else { $thn_pilih=date("Y"); }
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
                                                 </tr>';
                                     }
                                     else {
@@ -150,7 +148,6 @@ else { $thn_pilih=date("Y"); }
                                         $r_libur=cek_hari_libur($tgl_dipilih);
                                         if ($r_libur["error"]==false) {
                                             echo '<td><span class="badge badge-warning">'.$r_libur["libur_ket"].'</span></td>
-                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -166,7 +163,7 @@ else { $thn_pilih=date("Y"); }
                                                 //looping semua pegawai
                                                 for ($p=1;$p<=$user_total;$p++) {
                                                     if ($p==1) {
-                                                        echo '<td>'.$r_peg["item"][$p]["nama"].'</td>
+                                                        echo '<td><a href="'.$url.'/'.$page.'/view/'.$r_peg["item"][$p]["id"].'">'.$r_peg["item"][$p]["nama"].'</a></td>
                                                         <td>'.$JenisJabatan[$r_peg["item"][$p]["peg_jabatan"]].' '.$r_peg["item"][$p]["unit_nama"].'</td>
                                                         ';
                                                         //list kegiatan masing2 pegawai
@@ -180,7 +177,6 @@ else { $thn_pilih=date("Y"); }
                                                                         <td>'.$r_list["item"][$i]["redaksi"].'</td>
                                                                         <td>'.$r_list["item"][$i]["target"].' '.$r_list["item"][$i]["satuan"].'</td>
                                                                         <td>'.tgl_convert_waktu_pendek(1,$r_list["item"][$i]["tgl_add"]).'</td>
-                                                                        <td><div class="tooltip-bps"><a href="'.$url.'/edit/'.$r_list["item"][$i]["id"].'" class="btn btn-info btn-rounded btn-xs" data-toggle="tooltip" data-placement="top" title="Edit Kegiatan : '.$r_list["item"][$i]["redaksi"].'"><i class="fa fa-pencil" aria-hidden="true"></i></a> <a href="'.$url.'/hapus/'.$r_list["item"][$i]["id"].'" data-confirm="Apakah data ('.$r_list["item"][$i]["id"].') '.$r_list["item"][$i]["redaksi"].' ini akan di hapus?" class="btn btn-danger btn-rounded btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus Kegiatan : '.$r_list["item"][$i]["redaksi"].'"><i class="fa fa-trash" aria-hidden="true"></i></a></div></td>
                                                                     </tr>
                                                                 ';
                                                                 }
@@ -188,13 +184,12 @@ else { $thn_pilih=date("Y"); }
                                                                     echo '<tr>
                                                                         <td>'.$label_tglhari_ini.'</td>
                                                                         <td>'.$label_hari_ini.'</td>
-                                                                        <td>'.$r_peg["item"][$p]["nama"].'</td>
-                                                                         <td>'.$JenisJabatan[$r_peg["item"][$p]["peg_jabatan"]].' '.$r_peg["item"][$p]["unit_nama"].'</td>
+                                                                        <td><a href="'.$url.'/'.$page.'/view/'.$r_peg["item"][$p]["id"].'">'.$r_peg["item"][$p]["nama"].'</a></td>
+                                                                        <td>'.$JenisJabatan[$r_peg["item"][$p]["peg_jabatan"]].' '.$r_peg["item"][$p]["unit_nama"].'</td>
                                                                         <td>'.date("H:i",strtotime($r_list["item"][$i]["jam_start"])).' - '.date("H:i",strtotime($r_list["item"][$i]["jam_end"])).'</td>
                                                                         <td>'.$r_list["item"][$i]["redaksi"].'</td>
                                                                         <td>'.$r_list["item"][$i]["target"].' '.$r_list["item"][$i]["satuan"].'</td>
                                                                         <td>'.tgl_convert_waktu_pendek(1,$r_list["item"][$i]["tgl_add"]).'</td>
-                                                                        <td><div class="tooltip-bps"><a href="'.$url.'/edit/'.$r_list["item"][$i]["id"].'" class="btn btn-info btn-rounded btn-xs" data-toggle="tooltip" data-placement="top" title="Edit Kegiatan : '.$r_list["item"][$i]["redaksi"].'"><i class="fa fa-pencil" aria-hidden="true"></i></a> <a href="'.$url.'/hapus/'.$r_list["item"][$i]["id"].'" data-confirm="Apakah data ('.$r_list["item"][$i]["id"].') '.$r_list["item"][$i]["redaksi"].' ini akan di hapus?" class="btn btn-danger btn-rounded btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus Kegiatan : '.$r_list["item"][$i]["redaksi"].'"><i class="fa fa-trash" aria-hidden="true"></i></a></div></td>
                                                                     </tr>
                                                                 ';
                                                                 }
@@ -204,7 +199,6 @@ else { $thn_pilih=date("Y"); }
                                                             echo '
                                                             <td></td>
                                                             <td><span class="badge badge-danger">'.$r_list["pesan_error"].'</span></td>
-                                                            <td></td>
                                                             <td></td>
                                                             <td></td>
                                                             </tr>';
@@ -217,7 +211,7 @@ else { $thn_pilih=date("Y"); }
                                                             <tr>
                                                             <td>'.$label_tglhari_ini.'</td>
                                                             <td>'.$label_hari_ini.'</td>
-                                                            <td>'.$r_peg["item"][$p]["nama"].'</td>
+                                                            <td><a href="'.$url.'/'.$page.'/view/'.$r_peg["item"][$p]["id"].'">'.$r_peg["item"][$p]["nama"].'</a></td>
                                                             <td>'.$JenisJabatan[$r_peg["item"][$p]["peg_jabatan"]].' '.$r_peg["item"][$p]["unit_nama"].'</td>
                                                             ';
                                                         //list kegiatan masing2 pegawai
@@ -231,7 +225,7 @@ else { $thn_pilih=date("Y"); }
                                                                         <td>'.$r_list["item"][$i]["redaksi"].'</td>
                                                                         <td>'.$r_list["item"][$i]["target"].' '.$r_list["item"][$i]["satuan"].'</td>
                                                                         <td>'.tgl_convert_waktu_pendek(1,$r_list["item"][$i]["tgl_add"]).'</td>
-                                                                        <td><div class="tooltip-bps"><a href="'.$url.'/edit/'.$r_list["item"][$i]["id"].'" class="btn btn-info btn-rounded btn-xs" data-toggle="tooltip" data-placement="top" title="Edit Kegiatan : '.$r_list["item"][$i]["redaksi"].'"><i class="fa fa-pencil" aria-hidden="true"></i></a> <a href="'.$url.'/hapus/'.$r_list["item"][$i]["id"].'" data-confirm="Apakah data ('.$r_list["item"][$i]["id"].') '.$r_list["item"][$i]["redaksi"].' ini akan di hapus?" class="btn btn-danger btn-rounded btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus Kegiatan : '.$r_list["item"][$i]["redaksi"].'"><i class="fa fa-trash" aria-hidden="true"></i></a></div></td>
+                                                                        
                                                                     </tr>
                                                                 ';
                                                                 }
@@ -239,13 +233,13 @@ else { $thn_pilih=date("Y"); }
                                                                     echo '<tr>
                                                                         <td>'.$label_tglhari_ini.'</td>
                                                                         <td>'.$label_hari_ini.'</td>
-                                                                        <td>'.$r_peg["item"][$p]["nama"].'</td>
+                                                                        <td><a href="'.$url.'/'.$page.'/view/'.$r_peg["item"][$p]["id"].'">'.$r_peg["item"][$p]["nama"].'</a></td>
                                                                          <td>'.$JenisJabatan[$r_peg["item"][$p]["peg_jabatan"]].' '.$r_peg["item"][$p]["unit_nama"].'</td>
                                                                         <td>'.date("H:i",strtotime($r_list["item"][$i]["jam_start"])).' - '.date("H:i",strtotime($r_list["item"][$i]["jam_end"])).'</td>
                                                                         <td>'.$r_list["item"][$i]["redaksi"].'</td>
                                                                         <td>'.$r_list["item"][$i]["target"].' '.$r_list["item"][$i]["satuan"].'</td>
                                                                         <td>'.tgl_convert_waktu_pendek(1,$r_list["item"][$i]["tgl_add"]).'</td>
-                                                                        <td><div class="tooltip-bps"><a href="'.$url.'/edit/'.$r_list["item"][$i]["id"].'" class="btn btn-info btn-rounded btn-xs" data-toggle="tooltip" data-placement="top" title="Edit Kegiatan : '.$r_list["item"][$i]["redaksi"].'"><i class="fa fa-pencil" aria-hidden="true"></i></a> <a href="'.$url.'/hapus/'.$r_list["item"][$i]["id"].'" data-confirm="Apakah data ('.$r_list["item"][$i]["id"].') '.$r_list["item"][$i]["redaksi"].' ini akan di hapus?" class="btn btn-danger btn-rounded btn-xs" data-toggle="tooltip" data-placement="top" title="Hapus Kegiatan : '.$r_list["item"][$i]["redaksi"].'"><i class="fa fa-trash" aria-hidden="true"></i></a></div></td>
+                                                                        
                                                                     </tr>
                                                                 ';
                                                                 }
@@ -256,7 +250,6 @@ else { $thn_pilih=date("Y"); }
                                                             <td></td>
                                                             <td><span class="badge badge-danger">'.$r_list["pesan_error"].'</span></td>
                                                             
-                                                            <td></td>
                                                             <td></td>
                                                             <td></td>
                                                             </tr>';
@@ -271,7 +264,6 @@ else { $thn_pilih=date("Y"); }
                                                 //ada error bawahan kosong
                                                 echo '
                                                 <td><span class="badge badge-danger">'.$r_peg["pesan_error"].'</span></td>
-                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -297,7 +289,6 @@ else { $thn_pilih=date("Y"); }
                             <th>Kegiatan</th>
                             <th>Target</th>
                             <th>Tanggal Save</th>
-                            <th>&nbsp;</th>
                         </tr>
                         </tfoot>
 

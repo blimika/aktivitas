@@ -41,7 +41,7 @@
 	</div>
 	<div class="col-lg-2">
          <div class="title-action">
-              <a href="<?php echo $url.'/'.$page; ?>/add/" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+              
         </div>
 	</div>
 </div>

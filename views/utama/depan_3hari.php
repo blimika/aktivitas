@@ -122,7 +122,7 @@
                         $r_libur=cek_hari_libur($tgl_lusa);
                         if ($r_libur["error"]==false) {
                             echo '<tr>
-                                <td colspan="4"><span class="label label-success">'.$r_libur["liburk_ket"].'</span></td>
+                                <td colspan="4"><span class="label label-success">'.$r_libur["libur_ket"].'</span></td>
                                 </tr>';
                         }
                         else {

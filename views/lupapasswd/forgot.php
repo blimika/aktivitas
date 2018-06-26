@@ -24,8 +24,8 @@
             $loginku=false;
             $text_alert='';
             if (isset($_POST['submit'])) {
-                $user_id=$_POST['user_id'];
-                $user_passwd=$_POST['user_passwd'];
+                $user_id=$_POST['forgot_teks'];
+                //$user_passwd=$_POST['user_passwd'];
                 $r_log=cek_users_login($user_id,$user_passwd);
                 if ($r_log["error"]==false) {
                     $loginku=true;
@@ -54,18 +54,16 @@
             ?>
 
             <h3>Sistem Informasi Pencatatan Aktivitas Pegawai Online (SIPAPO)</h3>
-            <h3 class="text-info">Badan Pusat Statistik<br />Provinsi Nusa Tenggara Barat</h3>
-			<p>Silakan login untuk menggunakan sistem ini</p>
-            <form class="m-t" role="form" method="post" action="<?php echo $url; ?>/login/ceklogin">
+            <h3 class="text-danger">BPS Provinsi Nusa Tenggara Barat</h3>
+			<p>Lupa username / email</p>
+            <p class="text-left"> silakan masukkan e-mail yang sudah terdaftar pada sistem</p>
+            <form class="m-t" role="form" method="post" action="<?php echo $url; ?>/lupapassword/kirim/">
                 <div class="form-group">
-                    <input type="text" name="user_id" class="form-control" placeholder="Username" required="">
+                    <input type="text" name="forgot_teks" class="form-control" placeholder="masukkan e-mail" required="">
                 </div>
-                <div class="form-group">
-                    <input type="password" name="user_passwd" class="form-control" placeholder="Password" required="">
-                </div>
-                <button type="submit" name="submit" id="submit" class="btn btn-primary block full-width m-b">Login</button>
+                <button type="submit" name="submit" id="submit" class="btn btn-primary block full-width m-b">kirim password</button>
 
-                <a href="<?php echo $url; ?>/lupapassword/"><small>Forgot password?</small></a>
+                
             </form>
             <p class="m-t"> <small>Copyright &copy; <?php echo date('Y');?> Bidang IPDS BPS Provinsi NTB</small> </p>
             <?php } ?>

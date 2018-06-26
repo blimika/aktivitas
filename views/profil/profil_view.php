@@ -50,7 +50,7 @@
                             } 
                             ?>
                             <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                    <h2 class="no-margins">
                                    <?php echo $r_user["item"][1]["nama"];?>
                                 </h2>

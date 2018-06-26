@@ -370,7 +370,7 @@ function simpan_redaksi($kata_redaksi) {
 function jumlah_aktivitas($bulan_skrg,$tahun_skrg) {
 	$db_keg = new db();
 	$conn_keg = $db_keg -> connect();
-	$sql_ranking_keg = $conn_keg -> query("select unitkerja.kode, unitkerja.nama, a.jumlah from unitkerja left join (select SUBSTRING(aktivitas.unit_kode,1,4) as unit_kode, COUNT(*) as jumlah from aktivitas where month(aktivitas.tanggal)='$bulan_skrg' and year(aktivitas.tanggal)='$tahun_skrg' group by unit_kode) as a on SUBSTRING(unitkerja.kode,1,4)=a.unit_kode where unitkerja.jenis='1' and unitkerja.eselon=3 group by unitkerja.kode") or die(mysqli_error($conn_keg));
+	$sql_ranking_keg = $conn_keg -> query("select unitkerja.kode, unitkerja.nama, sum(a.jumlah) as jumlah from unitkerja left join (select SUBSTRING(aktivitas.unit_kode,1,4) as unit_kode, COUNT(*) as jumlah from aktivitas where month(aktivitas.tanggal)='$bulan_skrg' and year(aktivitas.tanggal)='$tahun_skrg' group by unit_kode) as a on SUBSTRING(unitkerja.kode,1,4)=a.unit_kode where unitkerja.jenis='1' and unitkerja.eselon=3 group by unitkerja.kode") or die(mysqli_error($conn_keg));
 	$cek=$sql_ranking_keg->num_rows;
 	$data_aktivitas=array("error"=>false);
 	if ($cek>0) {

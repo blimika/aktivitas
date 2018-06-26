@@ -42,6 +42,10 @@ if ($page=="uploadabsen") {
 	require_once 'page/uploadabsen/m_index.php';
 	exit();
 }
+if ($page=="lupapassword") {
+	require_once 'views/lupapasswd/forgot.php';
+	exit();
+}
 
 if (!isset($_SESSION['papo_username']) or empty($_SESSION['papo_username']))
      {
